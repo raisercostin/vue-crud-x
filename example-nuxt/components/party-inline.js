@@ -1,4 +1,4 @@
-import {firestore, hasDuplicate} from '@/firebase'
+// import {firestore, hasDuplicate} from '@/firebase'
 import {format} from 'date-fns'
 
 // set snackbar props in object to customize, or set as null to disable snackbar
@@ -22,7 +22,7 @@ export const crudTable = {
     { text: 'Photo URL', value: 'photo' }
   ],
   formatters: (value, _type) => {
-    if (_type === 'languages') return value.join(',')
+    // if (_type === 'languages') return value.join(',')
     return value
   }
 }
@@ -59,6 +59,7 @@ export const crudForm = {
 export const crudOps = { // CRUD
   export: null,
   delete: async (payload) => {
+    /*
     const {id} = payload
     const metaRef = firestore.collection('meta').doc('party')
     const docRef = firestore.collection('party').doc(id)
@@ -77,11 +78,13 @@ export const crudOps = { // CRUD
       if (parseInt(e.message) === 409) return 409
       else return 500
     }
+    */
     return 200
     // try { await firestore.collection('party').doc(id).delete() } catch (e) { return 'Delete Error' }
     // return ''
   },
   find: async (payload) => {
+    /*
     let records = []
     const {pagination, filterData} = payload
     const {rowsPerPage, page} = pagination // , totalItems, sortBy, descending
@@ -104,8 +107,22 @@ export const crudOps = { // CRUD
       pagination.totalItems = index
     } catch (e) { console.log(e) }
     return {records, pagination}
+    */
+    let records = [
+      {
+        name: 'test name',
+        remarks: 'test remarks',
+        languages: 'en',
+        status: 'status',
+        created: 'aha',
+        photo: 'aha'
+      }
+    ]
+    let pagination = {totalItems: 1}
+    return {records, pagination}
   },
   findOne: async (payload) => {
+    /*
     const {id} = payload
     let record = { }
     try {
@@ -116,8 +133,11 @@ export const crudOps = { // CRUD
       }
     } catch (e) { }
     return record
+    */
+    return {}
   },
   create: async (payload) => {
+    /*
     const {record: {id, ...noIdData}} = payload
     const metaRef = firestore.collection('meta').doc('party')
     const newDocRef = firestore.collection('party').doc()
@@ -135,13 +155,14 @@ export const crudOps = { // CRUD
       if (parseInt(e.message) === 409) return 409
       else return 500
     }
+    */
     return 201
     // if (await hasDuplicate('party', 'name', noIdData['name'])) return 'Duplicate Found'
     // try { await firestore.collection('party').add(noIdData) } catch (e) { return 'Create Error' }
     // return ''
   },
   update: async (payload) => {
-    let {record: {id, ...noIdData}} = payload
+    /* let {record: {id, ...noIdData}} = payload
     const docRef = firestore.collection('party').doc(id)
     try {
       await firestore.runTransaction(async t => {
@@ -154,6 +175,7 @@ export const crudOps = { // CRUD
       if (parseInt(e.message) === 409) return 409
       else return 500
     }
+    */
     return 200
     // if (await hasDuplicate('party', 'name', noIdData['name'], id)) return 409
     // try { await firestore.doc('party/' + id).update(noIdData) } catch (e) { return 500 }

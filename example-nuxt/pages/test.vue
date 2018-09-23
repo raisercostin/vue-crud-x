@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import {auth} from '@/components/firebase'
+// import {auth} from '@/components/firebase'
 import VueCrudX from '@/components/VueCrudX' // copy the source vue file here if you want to tinker with it
 import * as partyInlineDefs from '@/components/party-inline'
 
@@ -53,7 +53,7 @@ export default {
       loading: false,
       email: '',
       password: '',
-      loggedIn: false,
+      loggedIn: true,
       defs: partyInlineDefs
     }
   },
@@ -61,15 +61,18 @@ export default {
     console.log('created', this.$store)
   },
   methods: {
-    async onSignin () {
-      let user = null
-      this.loading = true
-      try {
-        user = await auth.signInWithEmailAndPassword(this.email, this.password)
-      } catch (e) { }
-      this.loading = false
-      if (!user) alert('Login error')
-      else this.loggedIn = true
+    onSignin () {
+      // async onSignin () {
+      // let user = null
+      // this.loading = true
+      // try {
+      //   user = await auth.signInWithEmailAndPassword(this.email, this.password)
+      // } catch (e) { }
+      // this.loading = false
+      // if (!user) alert('Login error')
+      // else
+      // let user = {}
+      this.loggedIn = true
     }
   }
 }

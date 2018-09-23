@@ -11,10 +11,6 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@firebase/app": "^0.3.3",
-    "@firebase/auth": "^0.7.2",
-    "@firebase/firestore": "^0.6.1",
-    "@firebase/storage": "^0.2.3",
     "date-fns": "^1.29.0",
     "lodash.clonedeep": "^4.5.0",
     "nuxt": "^1.0.0",
@@ -22,6 +18,7 @@
     "vuetify": "^1.2.3"
   },
   "devDependencies": {
+    "axios": "^0.18.0",
     "babel-eslint": "^7.2.3",
     "eslint": "^4.3.0",
     "eslint-config-standard": "^10.2.1",

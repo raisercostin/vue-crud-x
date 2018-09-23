@@ -169,7 +169,7 @@ export default {
     loading: function (newValue, oldValue) { },
     pagination: {
       handler () {
-        this.getRecordsHelper()
+        // this.getRecordsHelper() - infinite load if enabled. needs to investigate
       },
       deep: true
     }

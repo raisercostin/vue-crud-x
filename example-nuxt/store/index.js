@@ -28,8 +28,8 @@ const createStore = () => {
       }
     },
     getters: {
-      user (state) { return state.user },
-    }  
+      user (state) { return state.user }
+    }
   })
 }
 
